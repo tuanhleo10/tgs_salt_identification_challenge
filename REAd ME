@@ -1,0 +1,45 @@
+#link challenge
+https://www.kaggle.com/c/tgs-salt-identification-challenge
+
+#All step for this challenge 
+1. Download Datasets
+2. Visualization a little datasets
+3. Explore Datasets
+4. Evalute datasets
+5. Data Augmentation for Image Segmentation
+6. Create some loss for this problem
+7. build model
+8. Comparasion serval result 
+
+# install necessary
+!pip install imageio
+!pip install kaggle
+!pip install keras
+!pip install torch
+!pip install pywidgets
+!pip install ipywidgets # (from ipywidgets import IntProgress)
+
+# Because run on goole icloud (google colab)#image folder
+image_folder = os.path.join(self.root_path, "images")
+image_path = os.path.join(image_folder, img_id+".png")
+#mask foder
+mask_folder = os.path.join(self.root_path, "masks")
+mask_path = os.path.join(mask_folder, img_id+".png")
+#print(image_path, mask_path)
+#get data
+image = np.array(imageio.imread(image_path), dtype=np.uint8)
+mask = np.array(imageio.imread(mask_path), dtype=np.uint8)
+return image, mask
+establish for download data from kaggle
+from google.colab import files
+file.upload()
+####load kaggle.json(this downloaded from your own account of kaggle)
+!ls -1la kaggle.json
+!mkdir -p ~/.kaggle
+!cp kaggle.json ~/.kaggle/
+## set mode for json file
+!chmod 600 ~/.kaggle/kaggle.json
+!kaggle competitions download -c tgs-salt-identification-challenge
+!unzip train.zip
+!unzip test.zip
+
